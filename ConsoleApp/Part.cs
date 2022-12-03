@@ -8,11 +8,14 @@
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        protected Task<string[]> ReadFileAsync(string fileName)
+        protected Task<string[]> ReadFileLinesAsync(string fileName) => File.ReadAllLinesAsync(GetPath(fileName));
+
+        protected Task<string> ReadFileTextAsync(string fileName) => File.ReadAllTextAsync(GetPath(fileName));
+
+        private string GetPath(string fileName)
         {
             var filePath = Path.Combine(String.Join("\\", GetType().Namespace!.Split('.').Skip(1)), $"{fileName}.txt");
-            var rootPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\", filePath);
-            return File.ReadAllLinesAsync(rootPath);
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\", filePath);
         }
     }
 }

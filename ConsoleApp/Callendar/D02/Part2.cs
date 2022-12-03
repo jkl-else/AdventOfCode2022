@@ -4,7 +4,7 @@
     {
         public override async Task<string> GetResultAsync()
         {
-            var input = await ReadFileAsync("Input");
+            var input = await ReadFileLinesAsync("Input");
             return input
                 .Select(x => new {Enemy = Array.IndexOf(new[] {'A', 'B', 'C'}, x[0]), RequiredResult = Array.IndexOf(new[] {'X', 'Y', 'Z'}, x[2])})
                 .Select(x => new {x.Enemy, Me = MyChoice(x.Enemy, x.RequiredResult)})

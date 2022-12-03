@@ -4,7 +4,7 @@
     {
         public override async Task<string> GetResultAsync()
         {
-            var input = await ReadFileAsync("Input");
+            var input = await ReadFileLinesAsync("Input");
             var kalories = new Dictionary<int, int> { [0] = 0 };
             int index = 0;
             foreach (var kal in input)

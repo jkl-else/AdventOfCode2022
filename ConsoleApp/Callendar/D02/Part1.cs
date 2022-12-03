@@ -4,7 +4,7 @@
     {
         public override async Task<string> GetResultAsync()
         {
-            var input = await ReadFileAsync("Input");
+            var input = await ReadFileLinesAsync("Input");
             return input
                 .Select(x => new {Enemy = Array.IndexOf(new[] {'A', 'B', 'C'}, x[0]), Me = Array.IndexOf(new[] {'X', 'Y', 'Z'}, x[2])})
                 .Sum(x => x.Me + 1 // choice score

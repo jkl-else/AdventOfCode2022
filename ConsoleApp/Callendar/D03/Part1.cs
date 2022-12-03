@@ -4,7 +4,7 @@
     {
         public override async Task<string> GetResultAsync()
         {
-            var input = await ReadFileAsync("Input");
+            var input = await ReadFileLinesAsync("Input");
             var points = Enumerable.Range('a', 'z' - 'a' + 1)
                 .Union(Enumerable.Range('A', 'Z' - 'A' + 1))
                 .Select((x, i) => new { Value = (char)x, Score = i + 1 })
