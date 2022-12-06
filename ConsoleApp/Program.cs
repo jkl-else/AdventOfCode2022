@@ -6,7 +6,7 @@ namespace ConsoleApp
     {
         static async Task Main()
         {
-            Part part = new Callendar.D06.Part1();
+            Part part = new Callendar.D07.Part1();
 
             var w = Stopwatch.StartNew();
             var result = await part.GetResultAsync();
