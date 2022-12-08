@@ -4,24 +4,10 @@
     {
         public override async Task<string> GetResultAsync()
         {
-            var input = await ReadFileLinesAsync("Input");
-            var kalories = new Dictionary<int, int> { [0] = 0 };
-            int index = 0;
-            foreach (var kal in input)
-            {
-                if (kal.Length == 0)
-                {
-                    index++;
-                    kalories.Add(index, 0);
-                    continue;
-                }
-
-                kalories[index] += int.Parse(kal);
-            }
-
-            return kalories
-                .Values
-                .OrderDescending()
+            return (await ReadFileTextAsync("Input"))
+                .Split(Environment.NewLine + Environment.NewLine)
+                .Select(x => x.Split(Environment.NewLine).Select(int.Parse).Sum())
+                .OrderByDescending(x => x)
                 .Take(3)
                 .Sum()
                 .ToString();
