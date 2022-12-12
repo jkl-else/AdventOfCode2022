@@ -11,7 +11,7 @@
                 .ToDictionary(x => x.Value, x => x.Score);
 
             var scores = 0;
-            foreach (var group in input.Select((x, i) => new {Value = x, Index = i}).GroupBy(x => x.Index / 3))
+            foreach (var group in input.Select((x, i) => new {Value = x, Index = i}).GroupBy(x => x.Index / 3)) // SHould have used: IEnumerable<>.Chunk(3)
             {
                 var first = group.First().Value;
                 var second = group.Skip(1).First().Value;

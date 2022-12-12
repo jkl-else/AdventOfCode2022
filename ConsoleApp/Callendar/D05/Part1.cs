@@ -28,7 +28,7 @@
                 for (int i = 0; i < int.Parse(data[1]); i++)
                 {
                     var box = stacks[fromIndex].Last();
-                    stacks[fromIndex].RemoveAt(stacks[fromIndex].Count - 1);
+                    stacks[fromIndex].RemoveAt(stacks[fromIndex].Count - 1); // should have used: System.Collections.Stack
                     stacks[toIndex].Add(box);
                 }
             }
